@@ -1,0 +1,212 @@
+{% load i18n wagtailcore_tags static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claro Empresas - Soluções de Conectividade e Gestão (Funcional)</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .accordion-content { display: none; } /* Conteúdo do FAQ começa escondido */
+        .accordion-button.open .accordion-arrow { transform: rotate(180deg); }
+        .tabs-menu li { cursor: pointer; }
+        .tabs-menu li.current { background-color: #ef4444; color: white; }
+        .tab-content { display: none; }
+        .tab-content.current { display: flex; animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="text-slate-800">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <svg class="h-8 w-8 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                <span class="text-2xl font-bold text-slate-800">Claro Empresas</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#planos-moveis" class="text-slate-600 hover:text-red-600 font-medium">Planos Móveis</a>
+                <a href="#diferenciais" class="text-slate-600 hover:text-red-600 font-medium">Diferenciais</a>
+                <a href="#faq" class="text-slate-600 hover:text-red-600 font-medium">FAQ</a>
+            </div>
+            <a href="#" class="hidden sm:block bg-red-600 text-white px-5 py-2.5 rounded-lg hover:bg-red-700 transition-colors font-semibold">Falar com Especialista</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="diferenciais" class="py-20 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Mais que uma Simples Conexão</h2>
+                    <p class="text-slate-500 mt-2 max-w-2xl mx-auto">Ferramentas e benefícios que transformam a comunicação da sua empresa.</p>
+                </div>
+
+                <div id="tabs-container" class="max-w-4xl mx-auto">
+                    <ul class="tabs-menu mb-8 flex flex-col sm:flex-row justify-center p-1 bg-slate-200 rounded-xl space-y-1 sm:space-y-0 sm:space-x-1">
+                        <li class="current flex-1 py-3 px-4 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center space-x-2" data-tab="tab-1">
+                            <ion-icon name="phone-portrait-outline"></ion-icon>
+                            <span>Gestor Online</span>
+                        </li>
+                        <li class="flex-1 py-3 px-4 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center space-x-2 text-slate-600 hover:bg-slate-300" data-tab="tab-2">
+                            <ion-icon name="airplane-outline"></ion-icon>
+                            <span>Passaporte Internacional</span>
+                        </li>
+                        <li class="flex-1 py-3 px-4 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center space-x-2 text-slate-600 hover:bg-slate-300" data-tab="tab-3">
+                            <ion-icon name="apps-outline"></ion-icon>
+                            <span>Apps Inclusos</span>
+                        </li>
+                    </ul>
+
+                    <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg border min-h-[250px] md:min-h-[280px]">
+                        <div id="tab-1" class="tab-content current items-center gap-8">
+                            <div class="hidden md:block text-red-500 text-8xl">
+                                <ion-icon name="stats-chart-outline"></ion-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-3">Controle Total na Palma da Mão</h3>
+                                <p class="text-slate-600">Com o Gestor Online, você tem autonomia completa para administrar as linhas da sua empresa. Personalize o consumo de internet para cada colaborador, distribua a franquia de dados compartilhada de forma inteligente e otimize recursos para evitar surpresas na fatura.</p>
+                            </div>
+                        </div>
+                        <div id="tab-2" class="tab-content items-center gap-8">
+                            <div class="hidden md:block text-red-500 text-8xl">
+                                <ion-icon name="earth-outline"></ion-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-3">Sua Empresa Conectada pelo Mundo</h3>
+                                <p class="text-slate-600">Para negócios que não têm fronteiras, o Passaporte Internacional é seu maior aliado. Use a internet e faça ligações em mais de 80 países como se estivesse no Brasil, sem pagar nada a mais por isso. Mantenha sua equipe produtiva e conectada em viagens internacionais com um custo previsível. (Benefício incluso em planos selecionados).</p>
+                            </div>
+                        </div>
+                        <div id="tab-3" class="tab-content items-center gap-8">
+                            <div class="hidden md:block text-red-500 text-8xl">
+                                <ion-icon name="layers-outline"></ion-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-3">Um Ecossistema de Vantagens</h3>
+                                <p class="text-slate-600">Seu plano vai além da conectividade. Oferecemos um pacote de aplicativos para enriquecer seu dia a dia e proteger seus dispositivos. Com o Skeelo, você tem acesso a best-sellers e e-books. O McAfee garante a segurança dos seus dados contra ameaças digitais, e o Claro Banca mantém você informado com as principais revistas e jornais do país.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-20">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Perguntas Frequentes</h2>
+                </div>
+                <div class="space-y-4">
+                    <div class="faq-item bg-white border border-slate-200 rounded-xl">
+                        <h2>
+                            <button type="button" class="accordion-button flex items-center justify-between w-full p-6 font-semibold text-left">
+                                <span>Qual é o prazo de instalação?</span>
+                                <ion-icon name="chevron-down-outline" class="accordion-arrow transition-transform duration-200"></ion-icon>
+                            </button>
+                        </h2>
+                        <div class="accordion-content">
+                            <div class="p-6 pt-0 text-slate-600">
+                                <p>O nosso prazo padrão de instalação é de 5 a 7 dias úteis após a assinatura do contrato, sujeito a viabilidade técnica na sua localidade.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-white border border-slate-200 rounded-xl">
+                        <h2>
+                             <button type="button" class="accordion-button flex items-center justify-between w-full p-6 font-semibold text-left">
+                                <span>Existe algum período de fidelização?</span>
+                                <ion-icon name="chevron-down-outline" class="accordion-arrow transition-transform duration-200"></ion-icon>
+                            </button>
+                        </h2>
+                        <div class="accordion-content">
+                            <div class="p-6 pt-0 text-slate-600">
+                                <p>Sim, os nossos planos empresariais têm um período de fidelização de 12 meses, o que nos permite oferecer os melhores preços e condições de instalação.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-white border border-slate-200 rounded-xl">
+                        <h2>
+                             <button type="button" class="accordion-button flex items-center justify-between w-full p-6 font-semibold text-left">
+                                <span>O que acontece se a minha empresa crescer e precisar de mais velocidade?</span>
+                                <ion-icon name="chevron-down-outline" class="accordion-arrow transition-transform duration-200"></ion-icon>
+                            </button>
+                        </h2>
+                        <div class="accordion-content">
+                            <div class="p-6 pt-0 text-slate-600">
+                                <p>É muito simples! Pode fazer o upgrade do seu plano a qualquer momento. Basta contactar o seu gestor de conta e nós tratamos de tudo, muitas vezes sem necessidade de uma nova visita técnica.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        </main>
+
+    <footer class="bg-slate-800 text-slate-300">
+        <div class="container mx-auto px-6 py-12 text-center">
+            <p>&copy; {% now "Y" %} Claro Empresas. {% trans "Todos os direitos reservados." %}</p>
+        </div>
+    </footer>
+    
+    <script>
+        $(document).ready(function() {
+
+            // --- SCRIPT PARA ABAS (TABS) ---
+            // Baseado na referência: https://inspirationalpixels.com/creating-tabs-with-html-css-and-jquery/
+            $('.tabs-menu li').on('click', function() {
+                var tab_id = $(this).attr('data-tab');
+
+                // Remove a classe 'current' de todas as abas e painéis
+                $('.tabs-menu li').removeClass('current');
+                $('.tabs-menu li').addClass('text-slate-600 hover:bg-slate-300'); // Garante que as inativas voltem ao estilo padrão
+                $('.tab-content').removeClass('current');
+
+                // Adiciona a classe 'current' à aba clicada e ao painel correspondente
+                $(this).addClass('current');
+                $(this).removeClass('text-slate-600 hover:bg-slate-300'); // Remove estilos de hover da aba ativa
+                $("#" + tab_id).addClass('current');
+            });
+
+
+            // --- SCRIPT PARA ACORDEÃO (FAQ) ---
+            $('.accordion-button').on('click', function() {
+                
+                var button = $(this);
+                var content = button.parent().next('.accordion-content');
+                var item = button.closest('.faq-item');
+
+                // Verifica se o item clicado já está aberto
+                if (item.hasClass('open')) {
+                    // Se estiver aberto, fecha
+                    content.slideUp();
+                    item.removeClass('open');
+                    button.removeClass('open');
+                } else {
+                    // Se estiver fechado, fecha todos os outros primeiro
+                    $('.faq-item .accordion-content').slideUp();
+                    $('.faq-item').removeClass('open');
+                    $('.faq-item .accordion-button').removeClass('open');
+
+                    // E então abre o item clicado
+                    content.slideDown();
+                    item.addClass('open');
+                    button.addClass('open');
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>

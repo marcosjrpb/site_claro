@@ -1,0 +1,170 @@
+/*
+ * ===============================================
+ * FOLHA DE ESTILOS ORGANIZADA
+ * ===============================================
+ *
+ * 1. Estilos Globais
+ * 2. Estilos de Componentes
+ * - Seção Herói (Texto Dinâmico)
+ * - Seção Abas (Tabs)
+ * - Seção Acordeão (FAQ)
+ * - Seção Processo (Efeito de Vidro)
+ * - Seção Planos (Design Futurista)
+ * 3. Animações Keyframes
+ *
+ * ===============================================
+*/
+
+
+/* ===============================================
+   1. ESTILOS GLOBAIS
+   =============================================== */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc; /* slate-50 */
+}
+
+
+/* ===============================================
+   2. ESTILOS DE COMPONENTES
+   =============================================== */
+
+/* Seção Herói (Texto Dinâmico)
+----------------------------------------------- */
+.dynamic-text-enter {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.dynamic-text-leave {
+    animation: fadeOut 0.5s ease-in forwards;
+}
+
+
+/* Seção Abas (Tabs)
+----------------------------------------------- */
+.tabs-menu li {
+    cursor: pointer;
+}
+
+.tabs-menu li.current {
+    background-color: #ef4444; /* red-500 */
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.current {
+    display: flex;
+    animation: fadeInTab 0.5s ease-out;
+}
+
+
+/* Seção Acordeão (FAQ)
+----------------------------------------------- */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-button.open .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* Seção Processo (Efeito de Vidro)
+----------------------------------------------- */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.icon-glow {
+    border-radius: 9999px;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3);
+}
+
+
+/* Seção Planos (Design Futurista)
+----------------------------------------------- */
+.plan-card {
+    position: relative;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.plan-card::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    right: 0; 
+    bottom: 0; 
+    left: 0;
+    z-index: -1;
+    margin: -1px; /* Corresponde à espessura da borda */
+    border-radius: inherit; /* Segue o arredondamento do card */
+    background: linear-gradient(145deg, rgba(239, 68, 68, 0.4), rgba(159, 18, 57, 0.4));
+    transition: opacity 0.3s ease;
+}
+
+.plan-card:hover::before {
+    opacity: 1;
+    background: linear-gradient(145deg, rgba(239, 68, 68, 1), rgba(159, 18, 57, 1));
+}
+
+.plan-card .icon-wrapper {
+    background: linear-gradient(145deg, #475569, #1e293b);
+}
+
+
+/* ===============================================
+   3. ANIMAÇÕES KEYFRAMES
+   =============================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeInTab {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
